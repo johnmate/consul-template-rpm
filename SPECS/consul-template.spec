@@ -70,9 +70,6 @@ mkdir -p %{buildroot}%{config_dir}/template
 %defattr(-,root,root,-)
 %{_unitdir}/%{name}.service
 %{_bindir}/%{name}
-
-%files config
-%defattr(-,root,root,-)
 %dir %{config_dir}/config
 %dir %{config_dir}/template
 %config(noreplace) %{config_dir}/*
