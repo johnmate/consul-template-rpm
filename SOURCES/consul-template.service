@@ -8,7 +8,7 @@ After=network-online.target
 Restart=on-failure
 ExecStart=/bin/consul-template -config=/etc/consul-template.d/consul-template.hcl
 ExecReload=/bin/kill -HUP $MAINPID
-KillSignal=SIGINT
+KillSignal=SIGTERM
 
 [Install]
 WantedBy=multi-user.target
