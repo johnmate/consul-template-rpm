@@ -48,6 +48,8 @@ Example configuration files for the %{name} service.
 %build
 
 %install
+mkdir -p %{buildroot}%{config_dir}/config
+mkdir -p %{buildroot}%{config_dir}/template
 %{__install} -p -D -m 0644 %{SOURCE1} %{buildroot}%{_unitdir}/%{name}.service
 %{__install} -p -D -m 0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 %{__install} -p -D -m 0644 %{SOURCE10} %{buildroot}%{config_dir}/config/%{name}.hcl
