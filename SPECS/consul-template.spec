@@ -51,6 +51,7 @@ Example configuration files for the %{name} service.
 %{__install} -p -D -m 0644 %{SOURCE1} %{buildroot}%{_unitdir}/%{name}.service
 %{__install} -p -D -m 0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 %{__install} -p -D -m 0644 %{SOURCE10} %{buildroot}%{config_dir}/config/%{name}.hcl
+%{__install} -p -D -m 0644 %{SOURCE11} %{buildroot}%{config_dir}/config/haproxy.hcl
 %{__install} -p -D -m 0755 %{name} %{buildroot}%{_bindir}/%{name}
 
 %pre
@@ -68,9 +69,6 @@ Example configuration files for the %{name} service.
 %defattr(-,root,root,-)
 %{_unitdir}/%{name}.service
 %{_bindir}/%{name}
-
-%files config
-%defattr(-,root,root,-)
 %dir %{config_dir}/config
 %dir %{config_dir}/template
 %config(noreplace) %{config_dir}/*
