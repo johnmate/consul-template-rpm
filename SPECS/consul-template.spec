@@ -20,6 +20,7 @@ Source0:        https://releases.hashicorp.com/%{name}/%{version}/%{name}_%{vers
 Source1:        %{name}.service
 Source2:        %{name}.sysconfig
 Source10:       %{name}-base-config.conf
+Source11:       %{name}-haproxy-config.conf
 
 BuildRequires:  systemd-units
 
