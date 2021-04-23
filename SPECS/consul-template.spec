@@ -18,9 +18,7 @@ URL:            https://github.com/hashicorp/consul-template
 
 Source0:        https://releases.hashicorp.com/%{name}/%{version}/%{name}_%{version}_linux_amd64.tgz
 Source1:        %{name}.service
-Source2:        %{name}.sysconfig
 Source10:       %{name}-base-config.conf
-Source11:       %{name}-haproxy-config.conf
 
 BuildRequires:  systemd-units
 
@@ -49,12 +47,8 @@ Example configuration files for the %{name} service.
 %build
 
 %install
-mkdir -p %{buildroot}%{config_dir}/config
-mkdir -p %{buildroot}%{config_dir}/template
 %{__install} -p -D -m 0644 %{SOURCE1} %{buildroot}%{_unitdir}/%{name}.service
-%{__install} -p -D -m 0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
-%{__install} -p -D -m 0644 %{SOURCE10} %{buildroot}%{config_dir}/config/%{name}.hcl
-%{__install} -p -D -m 0644 %{SOURCE11} %{buildroot}%{config_dir}/config/haproxy.hcl
+%{__install} -p -D -m 0644 %{SOURCE10} %{buildroot}%{config_dir}/%{name}.hcl
 %{__install} -p -D -m 0755 %{name} %{buildroot}%{_bindir}/%{name}
 
 %pre
@@ -72,9 +66,7 @@ mkdir -p %{buildroot}%{config_dir}/template
 %defattr(-,root,root,-)
 %{_unitdir}/%{name}.service
 %{_bindir}/%{name}
-%dir %{config_dir}/config
-%dir %{config_dir}/template
+%dir %{config_dir}
 %config(noreplace) %{config_dir}/*
-%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 
 %changelog

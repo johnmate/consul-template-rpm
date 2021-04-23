@@ -1,2 +1,0 @@
-## daemon configuration
-OPTIONS="-config=/etc/consul-template.d/config"
