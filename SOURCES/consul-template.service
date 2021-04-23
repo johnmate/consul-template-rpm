@@ -6,8 +6,9 @@ After=network-online.target
 
 [Service]
 Restart=on-failure
-ExecStart=/bin/consul-template -config=/etc/consul-template.d/consul-template.hcl
+ExecStart=/usr/bin/consul-template -config=/etc/consul-template.d/consul-template.hcl
 ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
 KillSignal=SIGTERM
 
 [Install]
