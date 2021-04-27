@@ -2,14 +2,16 @@
 Description=Consul Template provides a convenient way to populate values from Consul into the filesystem.
 Documentation=https://github.com/hashicorp/consul-template
 Requires=network-online.target
-After=network-online.target
+After=network-online.target consul.service
 
 [Service]
-Restart=on-failure
+Type=simple
+SuccessExitStatus=12
 ExecStart=/usr/bin/consul-template -config=/etc/consul-template.d/consul-template.hcl
-ExecReload=/bin/kill -HUP $MAINPID
+ExecReload=/bin/kill -SIGHUP $MAINPID
+ExecStop=/bin/kill -SIGINT $MAINPID
 KillMode=process
-KillSignal=SIGTERM
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
