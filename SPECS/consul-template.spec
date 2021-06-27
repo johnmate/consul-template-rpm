@@ -16,7 +16,7 @@ Group:          System Environment/Daemons
 License:        Mozilla Public License, version 2.0
 URL:            https://github.com/hashicorp/consul-template
 
-Source0:        https://releases.hashicorp.com/%{name}/%{version}/%{name}_%{version}_linux_amd64.tgz
+Source0:        https://releases.hashicorp.com/%{name}/%{version}/%{name}_%{version}_linux_amd64.zip
 Source1:        %{name}.service
 Source10:       %{name}-base-config.conf
 
