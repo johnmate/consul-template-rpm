@@ -1,7 +1,7 @@
 %if 0%{?_version:1}
 %define         _verstr      %{_version}
 %else
-%define         _verstr      0.27.2
+%define         _verstr      0.31.0
 %endif
 
 %define config_dir    %{_sysconfdir}/consul-template.d
